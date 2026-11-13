@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="INNOVEX TECHNOLOGIES builds modern digital experiences and practical software solutions.">
+  <title>INNOVEX TECHNOLOGIES | Building the Future</title>
+  <style>
+    :root {
+      --bg: #071225;
+      --panel: #0d1d38;
+      --panel2: #102544;
+      --blue: #36baff;
+      --purple: #9870ff;
+      --white: #f5f8ff;
+      --muted: #a9bad3;
+      --line: rgba(166, 198, 240, .15);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--white);
+      background: radial-gradient(circle at 80% 5%, rgba(91, 63, 180, .20), transparent 28rem),
+                  radial-gradient(circle at 10% 30%, rgba(20, 147, 220, .12), transparent 30rem), var(--bg);
+      font-family: Arial, Helvetica, sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+      background: rgba(7, 18, 37, .88); border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: 1.5px; }
+    .mark {
+      width: 39px; height: 39px; border-radius: 12px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--blue), var(--purple)); color: #071225;
+      font-size: 21px; font-weight: 900; box-shadow: 0 0 25px rgba(54,186,255,.22);
+    }
+    .brand small { display: block; color: var(--blue); font-size: 9px; letter-spacing: 3px; }
+    .links { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: 14px; }
+    .links a:hover { color: var(--blue); }
+    .menu { display: none; border: 1px solid var(--line); color: white; background: var(--panel); padding: 9px 12px; border-radius: 9px; }
+    .hero { padding: 105px 0 90px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 45px; align-items: center; }
+    .eyebrow { color: var(--blue); font-size: 12px; letter-spacing: 3px; font-weight: 700; text-transform: uppercase; }
+    h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.04; letter-spacing: -3px; margin: 18px 0; }
+    .gradient { background: linear-gradient(90deg, #fff, var(--blue), #b69aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { max-width: 570px; color: var(--muted); font-size: 18px; }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-block; padding: 13px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; }
+    .primary { color: #061326; background: linear-gradient(100deg, var(--blue), #8f83ff); }
+    .secondary { border: 1px solid var(--line); color: var(--white); background: rgba(255,255,255,.03); }
+    .visual {
+      min-height: 310px; border: 1px solid rgba(93,174,255,.25); border-radius: 28px;
+      background: linear-gradient(145deg, rgba(31,73,125,.55), rgba(62,38,118,.38));
+      display: grid; place-items: center; position: relative; overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0,0,0,.25);
+    }
+    .orbit { width: 210px; height: 210px; border: 1px solid rgba(91,197,255,.55); border-radius: 50%; display: grid; place-items: center; transform: rotate(-25deg); }
+    .orbit:before { content: ""; position: absolute; width: 260px; height: 90px; border: 1px solid rgba(174,126,255,.65); border-radius: 50%; transform: rotate(55deg); }
+    .core { width: 105px; height: 105px; border-radius: 27px; display: grid; place-items: center; font-size: 48px; font-weight: 900; color: white; transform: rotate(25deg); background: linear-gradient(135deg, #168edc, #8056e9); box-shadow: 0 0 50px rgba(54,186,255,.35); }
+    section { padding: 75px 0; }
+    .section-head { max-width: 650px; margin-bottom: 34px; }
+    h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; margin: 10px 0; }
+    .section-head p, .card p { color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(150deg, rgba(16,37,68,.9), rgba(10,25,48,.85)); }
+    .icon { width: 45px; height: 45px; display: grid; place-items: center; border-radius: 13px; color: var(--blue); background: rgba(54,186,255,.12); font-size: 22px; }
+    h3 { margin: 17px 0 8px; font-size: 19px; }
+    .product { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; padding: 35px; border: 1px solid rgba(54,186,255,.23); border-radius: 24px; background: linear-gradient(120deg, rgba(16,44,78,.95), rgba(42,31,83,.75)); }
+    .product-art { min-height: 220px; border-radius: 18px; background: linear-gradient(135deg, #123e69, #443078); display: grid; place-items: center; text-align: center; padding: 20px; }
+    .product-art strong { font-size: 34px; letter-spacing: 2px; }
+    .product-art span { display: block; color: #b6dfff; font-size: 12px; letter-spacing: 4px; }
+    .tag { display: inline-block; border: 1px solid rgba(54,186,255,.3); color: var(--blue); padding: 5px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 1px; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+    .about-box { padding: 25px; border-left: 2px solid var(--blue); background: rgba(255,255,255,.03); border-radius: 0 15px 15px 0; }
+    .contact { text-align: center; padding: 55px 25px; border: 1px solid var(--line); border-radius: 23px; background: linear-gradient(120deg, rgba(20,57,94,.7), rgba(58,40,99,.55)); }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .hero, .product, .about { grid-template-columns: 1fr; }
+      .hero { padding: 70px 0; }
+      .visual { min-height: 250px; }
+      .cards { grid-template-columns: 1fr; }
+      .menu { display: block; }
+      .links { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 20px 5%; background: #09172d; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      .links.open { display: flex; }
+      h1 { letter-spacing: -1.5px; }
+      section { padding: 55px 0; }
+      .product { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="INNOVEX home">
+        <span class="mark">I</span>
+        <span>INNOVEX<small>TECHNOLOGIES</small></span>
+      </a>
+      <button class="menu" id="menuButton" aria-label="Open navigation" aria-expanded="false">Menu ☰</button>
+      <nav class="links" id="navLinks">
+        <a href="#home">Home</a><a href="#services">What We Do</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Technology • Creativity • Progress</div>
+        <h1>BUILDING<br><span class="gradient">THE FUTURE.</span></h1>
+        <p>We are building practical digital solutions that help people and businesses take their next step forward.</p>
+        <div class="actions">
+          <a class="btn primary" href="#products">Explore INNOVEX WEB</a>
+          <a class="btn secondary" href="#about">Discover our vision</a>
+        </div>
+      </div>
+      <div class="visual" aria-label="Abstract INNOVEX technology symbol">
+        <div class="orbit"><div class="core">I</div></div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What we do</div>
+          <h2>Digital ideas, made useful.</h2>
+          <p>Our starting focus is creating clear, modern online experiences. We plan to grow our skills and services step by step.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">✦</div><h3>Website Design</h3><p>Modern, mobile-friendly websites that introduce a business, showcase its work and help visitors find information.</p></article>
+          <article class="card"><div class="icon">⌘</div><h3>Software Development</h3><p>Learning and building useful digital tools that make everyday tasks simpler and more organised.</p></article>
+          <article class="card"><div class="icon">◈</div><h3>Digital Innovation</h3><p>Exploring creative technology ideas and turning promising concepts into practical projects.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="wrap">
+        <div class="product">
+          <div>
+            <span class="tag">OUR FIRST PROJECT</span>
+            <h2>Meet <span class="gradient">INNOVEX WEB.</span></h2>
+            <p>A website-building service concept designed to help small businesses establish a clear, professional presence online.</p>
+            <p>Our first step is to create sample websites, learn from feedback and improve the service.</p>
+            <a class="btn primary" href="#contact">Learn more</a>
+          </div>
+          <div class="product-art"><div><strong>INNOVEX WEB</strong><span>YOUR IDEAS. ONLINE.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">About Innovex</div><h2>From Africa, with a global vision.</h2></div>
+        <div class="about">
+          <div class="about-box"><h3>Our Mission</h3><p>To develop creative and accessible digital solutions that help individuals and businesses work smarter and grow.</p></div>
+          <div class="about-box"><h3>Our Vision</h3><p>To grow into a respected technology company, creating useful innovations with a positive impact across the world.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="eyebrow">Let's build what comes next</div>
+          <h2>Have an idea?</h2>
+          <p style="color: var(--muted); max-width: 550px; margin: 0 auto 22px;">INNOVEX TECHNOLOGIES is at the beginning of its journey. Check back as we develop our first projects.</p>
+          <a class="btn secondary" href="#home">Back to top ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>© <span id="year"></span> INNOVEX TECHNOLOGIES</span><span>Building the Future.</span></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", isOpen);
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
